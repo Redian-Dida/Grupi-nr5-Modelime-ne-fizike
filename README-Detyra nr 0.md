@@ -4,6 +4,7 @@
 1.Redian Dida
 2.Klevio Shtembari
 3.Eglant Lacka
+4.Kristi Lluka
 
 ### Qëllimi i projektit
 Ky projekt demonstron përdorimin e Python për llogaritje shkencore, duke përdorur libraritë NumPy për analizë numerike dhe Matplotlib për vizualizimin e të dhënave.
