@@ -79,6 +79,7 @@ Sp = adj.sum(axis=1) / np.max(adj.sum(axis=1))
 S = P - 0.1 * Sp
 
 #Grafiku i Stilizuar
+
 plt.figure(figsize=(10, 6), dpi=100)
 faqet = [f"Faqja {i}" for i in range(len(P))]
 x = np.arange(len(faqet))
