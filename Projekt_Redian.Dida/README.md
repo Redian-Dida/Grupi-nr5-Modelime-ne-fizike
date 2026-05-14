@@ -4,54 +4,53 @@
 
 **Grupi:** nr.5
 
-1. Qëllimi Shkencor
-Ky projekt studion metodat e renditjes së faqeve në web (PageRank) dhe dobësitë e tyre ndaj
-teknikave manipuluese të njohura si "Link Farms". Qëllimi është ndërtimi i një sistemi hibrid që
-identifikon këto struktura përmes metrikave të rrjetit dhe aplikon penalizime për të ruajtur
-integritetin e renditjes.
+**1. Qëllimi i Eksperimentit**
+Ky projekt analizon algoritmin PageRank dhe dobësitë e tij kur përballet me teknika manipuluese si "Link Farms". Fokusimi kryesor është ndërtimi i një modeli hibrid që identifikon këto struktura përmes densitetit të lidhjeve dhe aplikon penalizime për të ruajtur renditjen reale të faqeve.
 
-2. Modeli Matematik Orientues
+**2. Modeli Matematik**
 Renditja finale llogaritet përmes funksionit hibrid:
 Si = wP Pi + wR Ri + wQ Qi − wS Spi
-Në këtë implementim, fokusi është te faktori Spi (Spam Score), i cili llogaritet si raporti i lidhjeve
-dalëse të faqes ndaj maksimumit të lejuar në rrjet. Pesha wS përdoret për të rregulluar ashpërsinë e
-penalizimit.
+Për këtë implementim:
+​Pi: PageRank score standard.
+​Spi: Spam Score (llogaritet bazuar në numrin e lidhjeve dalëse).
+​wS: Pesha e penalizimit.
 
-3. Hapat Metodologjikë
+**3. Hapat Metodologjikë**
 1. Ndërtimi i Grafit: Krijimi i një matrice fqinjësie që simulon një rrjet normal me shtimin e
 një "link farm" artificial.
 2. Llogaritja e PageRank: Përdorimi i metodës iterative me faktor shpërndarjeje d = 0.85.
 3. Analiza e Spam-it: Identifikimi i faqeve që kanë densitet të lartë lidhjesh dalëse.
 4. Krahasimi: Ballafaqimi i rezultateve midis modelit standard dhe atij me penalizim aktiv.
 
-4. Strukturimi i Repozitorit
-project_name/├── README.md
+**4. Strukturimi i Repozitorit**
+spam_resistant_ranking/
+├── README.md
 ├── requirements.txt
 ├── src/
-│├── ranking/
-││├── pagerank.py
-││└── hybrid_penalty.py
+│   └── ranking/
+│       ├── pagerank.py        # Algoritmi bazë PageRank
+│       ├── spam_features.py   # Llogaritja e treguesve të spam-it
+│       └── hybrid_penalty.py  # Modeli i renditjes hibride
 ├── scripts/
-│
-└── run_link_farm_experiment.py
+│   └── run_link_farm_experiment.py  # Skripti kryesor i ekzekutimit
 └── results/
-└── figures/
-└── eksperimenti_2.png
-5. Udhëzime për Ekzekutim
-Për të riprodhuar rezultatet, përdorni komandat e mëposhtme:
-# Instalimi i varësive
+    └── figures/
+        └── eksperimenti_2.png
+
+**5. Udhëzime për Ekzekutim**
+​1.Instaloni libraritë e nevojshme:
 pip install numpy matplotlib
-# Ekzekutimi i kodit
+2.​Ekzekutoni eksperimentin:
 python scripts/run_link_farm_experiment.py
 
-6. Diskutimi i Rezultateve dhe Kufizimet
+**6. Diskutimi i Rezultateve dhe Kufizimet**
 Kufizimet:
 • Modeli mund të shfaqë "False Positives" duke penalizuar faqe që janë thjesht direktoritë
 legjitime.
 • Faktori i spam-it është i thjeshtësuar dhe nuk analizon përmbajtjen semantike të faqeve.
 • Mungesa e të dhënave dinamike bën që modeli të jetë efektiv vetëm për rrjete statike.
 
-7.Kodi i Implementuar (Python)
+**7.Kodi i Implementuar (Python)**
  
 import numpy as np
 import matplotlib.pyplot as plt# Matrica e fqinjësisë (shembull)
