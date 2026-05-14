@@ -1,1 +1,40 @@
+1. src/ranking/pagerank.py
+
+import numpy as np
+
+def calculate_pagerank(M, d=0.85):
+    n = len(M)
+    v = np.ones(n) / n
+    # Normalizimi i matricës
+    M_norm = M / np.where(M.sum(axis=1)[:, None] == 0, 1, M.sum(axis=1)[:, None])
+    for _ in range(50): 
+        v = (1 - d) / n + d * (M_norm.T @ v)
+    return v
+
+2. src/ranking/spam_features.py
+
+import numpy as np
+
+def get_spam_score(adj):
+    """
+    Llogarit faktorin Spi bazuar në lidhjet e përsëritura (out-degree)
+    siç është specifikuar në modelin orientues.
+    """
+    out_degrees = adj.sum(axis=1)
+    max_degree = np.max(out_degrees)
+    
+    if max_degree == 0:
+        return np.zeros(len(out_degrees))
+        
+    return out_degrees / max_degree
+
+3. src/ranking/hybrid_penalty.py
+
+def calculate_hybrid_score(P, Sp, weight=0.1):
+    """
+    Zbaton penalizimin: S = P - ws * Sp
+    """
+    return P - weight * Sp
+
+
 
