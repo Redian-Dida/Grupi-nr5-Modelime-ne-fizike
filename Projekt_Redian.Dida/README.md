@@ -1,4 +1,4 @@
-Projekti 2: Renditje rezistente ndaj spam-it dhe eksperiment me link farm
+#Projekti 2: Renditje rezistente ndaj spam-it dhe eksperiment me link farm
 Punoi;Redian Dida
 Grupi nr.5
 
