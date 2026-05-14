@@ -62,9 +62,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 if not os.path.exists('figures'): os.makedirs('figures')
+
 #Eksperimenti 2:Drejtues i renditjes rezistente ndaj spam-it;pergjegjes per eksperimentin link farm.
 #Punoi;Redian Dida
 #Grupi nr.5
+
 adj = np.array([[0,1,1,0,0],[1,0,1,0,0],[1,1,0,1,0],[0,0,0,0,1],[0,0,0,1,0]])
 
 def calculate_pagerank(M, d=0.85):
