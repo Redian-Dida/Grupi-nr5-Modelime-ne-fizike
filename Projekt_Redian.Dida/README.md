@@ -1,6 +1,6 @@
 ## Projekti 2: Renditje rezistente ndaj spam-it dhe eksperiment me link farm
 
-**Punoi:**Redian Dida
+**Punoi:** Redian Dida
 
 **Grupi:** nr.5
 
