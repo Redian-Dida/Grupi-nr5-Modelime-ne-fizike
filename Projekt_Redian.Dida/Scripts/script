@@ -1,0 +1,57 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+import sys
+
+# Sigurohemi që script-i të gjejë modulet te dosja src
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Importimi i funksioneve nga src/ranking/
+from src.ranking.pagerank import calculate_pagerank
+from src.ranking.spam_features import get_spam_score
+from src.ranking.hybrid_penalty import calculate_hybrid_score
+
+# --- Eksperimenti 2: Drejtues i renditjes rezistente ndaj spam-it ---
+# Punoi: Redian Dida
+# Grupi nr.5
+
+if not os.path.exists('figures'): 
+    os.makedirs('figures')
+
+# Matrica e fqinjësisë (adjacency matrix)
+adj = np.array([[0,1,1,0,0],[1,0,1,0,0],[1,1,0,1,0],[0,0,0,0,1],[0,0,0,1,0]])
+
+def main():
+    # 1. Llogaritja e PageRank (Standard)
+    P = calculate_pagerank(adj)
+
+    # 2. Llogaritja e Faktorit të Spam-it (Sp)
+    Sp = get_spam_score(adj)
+
+    # 3. Llogaritja e Renditjes me Penalizim (S)
+    # Përdorim peshën 0.1 si në kodin origjinal
+    S = calculate_hybrid_score(P, Sp, weight=0.1)
+
+    # --- Grafiku i Stilizuar ---
+    plt.figure(figsize=(10, 6), dpi=100)
+    faqet = [f"Faqja {i}" for i in range(len(P))]
+    x = np.arange(len(faqet))
+
+    plt.bar(x - 0.2, P, 0.4, label='PageRank (Standard)', color='blue', edgecolor='black', alpha=0.8)
+    plt.bar(x + 0.2, S, 0.4, label='Me Penalizim', color='red', edgecolor='black', alpha=0.8)
+    plt.plot(x + 0.2, S, 'ro', markersize=4)
+
+    plt.grid(True, linestyle='--', alpha=0.6)
+    plt.title('Rezistenca ndaj Spam-it (Eksperimenti 2)', fontsize=14, fontweight='bold', family='serif')
+    plt.xlabel('Faqet e Web-it', fontsize=11, family='serif')
+    plt.ylabel('Score', fontsize=11, family='serif')
+    plt.xticks(x, faqet)
+    plt.legend(loc='upper right', frameon=True, shadow=True)
+    
+    # Ruajtja e grafikut
+    plt.savefig('figures/eksperimenti_2.png')
+    print("Grafiku u ruajt me sukses te dosja 'figures/'.")
+    plt.show()
+
+if __name__ == "__main__":
+    main()
