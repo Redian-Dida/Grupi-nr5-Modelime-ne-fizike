@@ -1,6 +1,6 @@
-#Projekti 2: Renditje rezistente ndaj spam-it dhe eksperiment me link farm
-Punoi;Redian Dida
-Grupi nr.5
+## Projekti 2: Renditje rezistente ndaj spam-it dhe eksperiment me link farm
+**Punoi**Redian Dida
+**Grupi** nr.5
 
 1. Qëllimi Shkencor
 Ky projekt studion metodat e renditjes së faqeve në web (PageRank) dhe dobësitë e tyre ndaj
