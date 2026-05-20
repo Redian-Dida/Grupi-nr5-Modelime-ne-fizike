@@ -95,6 +95,7 @@ plt.title('Rezistenca ndaj Spam-it (Eksperimenti 2)', fontsize=14, fontweight='b
 plt.xlabel('Faqet e Web-it', fontsize=11, family='serif')
 plt.ylabel('Score', fontsize=11, family='serif')
 plt.xticks(x, faqet)
+plt.ylim(0, 0.45)
 plt.legend(loc='upper right', frameon=True, shadow=True)
 plt.savefig('figures/eksperimenti_2.png')
 plt.show()
