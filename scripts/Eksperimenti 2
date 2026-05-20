@@ -46,6 +46,7 @@ def main():
     plt.xlabel('Faqet e Web-it', fontsize=11, family='serif')
     plt.ylabel('Score', fontsize=11, family='serif')
     plt.xticks(x, faqet)
+    plt.ylim(0, 0.45)
     plt.legend(loc='upper right', frameon=True, shadow=True)
     
     # Ruajtja e grafikut
