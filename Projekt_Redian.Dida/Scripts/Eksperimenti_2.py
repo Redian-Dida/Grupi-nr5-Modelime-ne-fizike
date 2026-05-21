@@ -7,10 +7,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Importimi i funksioneve nga src/ranking/
-from src.ranking.pagerank import calculate_pagerank
-from src.ranking.spam_features import get_spam_score
-from src.ranking.hybrid_penalty import calculate_hybrid_score
-
+from src.ranking import calculate_pagerank, get_spam_score, calculate_hybrid_score
 # --- Eksperimenti 2: Drejtues i renditjes rezistente ndaj spam-it ---
 # Punoi: Redian Dida
 # Grupi nr.5
