@@ -51,7 +51,7 @@ def main():
     
     # Ruajtja e grafikut
     plt.savefig('figures/eksperimenti_2.png')
-    print("Grafiku u ruajt me sukses te dosja 'figures/'.")
+    print("Grafiku u ruajt me sukses te dosja 'figures/eksperimenti_2'.")
     plt.show()
 
 if __name__ == "__main__":
