@@ -66,4 +66,5 @@ ose
 pip install -r requirements.txt
 
 2.​Ekzekutoni eksperimentin ne terminal:
+
 python eksperimenti_2.py
