@@ -51,9 +51,12 @@ një "link farm" artificial.
 **5. Udhëzime për Ekzekutimin**
 
 ​1.Instaloni libraritë e nevojshme:
+
 pip install numpy  dhe matplotlib
 ose
+
 pip install -r requirements.txt
+
 2.​Ekzekutoni eksperimentin ne terminal:
 python eksperimenti_2.py
 
