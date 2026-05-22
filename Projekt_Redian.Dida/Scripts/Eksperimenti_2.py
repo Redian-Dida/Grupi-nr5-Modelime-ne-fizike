@@ -3,30 +3,26 @@ import matplotlib.pyplot as plt
 import os
 import sys
 
-# Sigurohemi që script-i të gjejë modulet te dosja src
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+script_dir = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(script_dir)
 
-# Importimi i funksioneve nga src/ranking/
 from src.ranking import calculate_pagerank, get_spam_score, calculate_hybrid_score
 # --- Eksperimenti 2: Drejtues i renditjes rezistente ndaj spam-it ---
 # Punoi: Redian Dida
 # Grupi nr.5
 
-if not os.path.exists('figures'): 
-    os.makedirs('figures')
+figures_dir = os.path.join(script_dir, 'figures')
+if not os.path.exists(figures_dir):
+    os.makedirs(figures_dir)
 
-# Matrica e fqinjësisë (adjacency matrix)
+# Matrica e fqinjësisë 
 adj = np.array([[0,1,1,0,0],[1,0,1,0,0],[1,1,0,1,0],[0,0,0,0,1],[0,0,0,1,0]])
 
 def main():
-    # 1. Llogaritja e PageRank (Standard)
     P = calculate_pagerank(adj)
 
-    # 2. Llogaritja e Faktorit të Spam-it (Sp)
     Sp = get_spam_score(adj)
 
-    # 3. Llogaritja e Renditjes me Penalizim (S)
-    # Përdorim peshën 0.1 si në kodin origjinal
     S = calculate_hybrid_score(P, Sp, weight=0.1)
 
     # --- Grafiku i Stilizuar ---
@@ -42,13 +38,13 @@ def main():
     plt.title('Rezistenca ndaj Spam-it (Eksperimenti 2)', fontsize=14, fontweight='bold', family='serif')
     plt.xlabel('Faqet e Web-it', fontsize=11, family='serif')
     plt.ylabel('Score', fontsize=11, family='serif')
-    plt.xticks(x, faqet) 
+    plt.xticks(x, faqet)
     plt.ylim(0, 0.45)
     plt.legend(loc='upper right', frameon=True, shadow=True)
-    
+
     # Ruajtja e grafikut
-    plt.savefig('figures/eksperimenti_2.png')
-    print("Grafiku u ruajt me sukses te dosja 'figures/eksperimenti_2'.")
+    plt.savefig(os.path.join(figures_dir, 'eksperimenti_2.png'))
+    print(f"Grafiku u ruajt me sukses te dosjen '{figures_dir}'.")
     plt.show()
 
 if __name__ == "__main__":
