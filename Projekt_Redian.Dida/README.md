@@ -47,7 +47,7 @@ një "link farm" artificial.
 
 │    └──src/
 
-│           ├── _init_.py     
+│           ├── init.py     
 │           └── ranking.py  
 
 │    └── figures/
