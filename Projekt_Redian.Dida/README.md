@@ -17,7 +17,7 @@ Për këtë implementim:
 ​Spi: Spam Score (llogaritet bazuar në numrin e lidhjeve dalëse).
 ​wS: Pesha e penalizimit.
 
-**3.Projekti do të**
+**3.Projekti do të;**
 
 1. Llogarisë PageRank standard.
 2. Llogarisë një score spam-i për çdo faqe.
@@ -25,7 +25,7 @@ Për këtë implementim:
 4. Gjenerojë një grafik dhe ta ruajë në `figures/eksperimenti_2.png`.
 
 
-**4. Hapat Metodologjikë**
+**4. Hapat Metodologjikë janë;**
 
 1. Ndërtimi i Grafit: Krijimi i një matrice fqinjësie që simulon një rrjet normal me shtimin e
 një "link farm" artificial.
