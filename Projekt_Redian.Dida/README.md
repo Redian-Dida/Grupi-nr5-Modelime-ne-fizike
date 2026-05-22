@@ -26,6 +26,7 @@ një "link farm" artificial.
 4. Krahasimi: Ballafaqimi i rezultateve midis modelit standard dhe atij me penalizim aktiv.
 
 **4. Strukturimi i Repozitorit**
+
 ├── Projekt_Redian.Dida
 
 │    └──scripts/
@@ -37,6 +38,7 @@ një "link farm" artificial.
 │     ├──README.md
 
 │    └──src/
+
 │           ├── _init_.py     
 │           └── ranking.py  
 
