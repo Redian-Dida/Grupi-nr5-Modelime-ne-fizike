@@ -26,37 +26,27 @@ një "link farm" artificial.
 4. Krahasimi: Ballafaqimi i rezultateve midis modelit standard dhe atij me penalizim aktiv.
 
 **4. Strukturimi i Repozitorit**
-
-spam_resistant_ranking/
-├── README.md
-├── requirements.txt
-├── src/
-│   └── ranking/
-│       ├── pagerank.py        # Algoritmi bazë PageRank
-│       ├── spam_features.py   # Llogaritja e treguesve të spam-it
-│       └── hybrid_penalty.py  # Modeli i renditjes hibride
-├── scripts/
-│   └── run_link_farm_experiment.py  # Skripti kryesor i ekzekutimit
-└── results/
-    └── figures/
-        └── eksperimenti_2.png
-
-**5. Udhëzime për Ekzekutim**
+├── Projekt_Redian.Dida
+│    └──scripts/
+│     ├── Eksperimenti_2.py
+│     ├── requirements.txt
+│     ├──README.md
+│    └──src/
+│           ├── _init_.py     
+│           └── ranking.py  
+│    └── figures/
+│           └── eksperimenti_2.png
+└──README.md
+**5. Udhëzime për Ekzekutimin**
 
 ​1.Instaloni libraritë e nevojshme:
-pip install numpy matplotlib
-2.​Ekzekutoni eksperimentin:
-python scripts/run_link_farm_experiment.py
+pip install numpy  dhe matplotlib
+ose
+pip install -r requirements.txt
+2.​Ekzekutoni eksperimentin ne terminal:
+python eksperimenti_2.py
 
-**6. Diskutimi i Rezultateve dhe Kufizimet**
-
-Kufizimet:
-• Modeli mund të shfaqë "False Positives" duke penalizuar faqe që janë thjesht direktoritë
-legjitime.
-• Faktori i spam-it është i thjeshtësuar dhe nuk analizon përmbajtjen semantike të faqeve.
-• Mungesa e të dhënave dinamike bën që modeli të jetë efektiv vetëm për rrjete statike.
-
-**7.Kodi i Implementuar (Python)**
+**6.Kodi i Implementuar (Python)**
  
 import numpy as np
 import matplotlib.pyplot as plt
