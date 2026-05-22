@@ -1,37 +1,49 @@
-1. src/ranking/pagerank.py
-
 import numpy as np
 
-def calculate_pagerank(M, d=0.85):
-    n = len(M)
-    v = np.ones(n) / n
-    # Normalizimi i matricës
-    M_norm = M / np.where(M.sum(axis=1)[:, None] == 0, 1, M.sum(axis=1)[:, None])
-    for _ in range(50): 
-        v = (1 - d) / n + d * (M_norm.T @ v)
-    return v
+def calculate_pagerank(adj, damping=0.85, iterations=100, tol=1e-6):
+    """
+    Calculate PageRank scores for nodes in a graph.
+    """
+    n = adj.shape[0]
+    out_links = adj.sum(axis=1)
+    out_links[out_links == 0] = 1
+    M = adj / out_links[:, np.newaxis]
+    M = damping * M + (1 - damping) / n
+    pr = np.ones(n) / n
 
-2. src/ranking/spam_features.py
+    for _ in range(iterations):
+        pr_new = M.T @ pr
+        if np.linalg.norm(pr_new - pr) < tol:
+            break
+        pr = pr_new
 
-import numpy as np
+    pr = pr / pr.sum()
+    return pr
 
 def get_spam_score(adj):
     """
-    Llogarit faktorin Spi bazuar në lidhjet e përsëritura (out-degree)
-    siç është specifikuar në modelin orientues.
+    Calculate spam scores based on in-degree and out-degree.
     """
-    out_degrees = adj.sum(axis=1)
-    max_degree = np.max(out_degrees)
-    
+    n = adj.shape[0]
+    in_degree = adj.sum(axis=0)
+    out_degree = adj.sum(axis=1)
+    max_degree = max(in_degree.max(), out_degree.max())
     if max_degree == 0:
-        return np.zeros(len(out_degrees))
-        
-    return out_degrees / max_degree
+        return np.zeros(n)
 
-3. src/ranking/hybrid_penalty.py
+    spam = np.zeros(n)
+    for i in range(n):
+        if in_degree[i] == 0 and out_degree[i] > 0:
+            spam[i] = min(1.0, out_degree[i] / max_degree)
+        elif in_degree[i] > 0:
+            spam[i] = max(0, (out_degree[i] - in_degree[i]) / max_degree)
 
-def calculate_hybrid_score(P, Sp, weight=0.1):
+    return spam / (spam.max() + 1e-10)
+
+def calculate_hybrid_score(pagerank, spam_score, weight=0.1):
     """
-    Zbaton penalizimin: S = P - ws * Sp
+    Calculate hybrid score combining PageRank with spam penalty.
     """
-    return P - weight * Sp
+    hybrid = pagerank * (1 - weight * spam_score)
+    hybrid = hybrid / hybrid.sum()
+    return hybrid
