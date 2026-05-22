@@ -7,7 +7,7 @@ script_dir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(script_dir)
 
 from src.ranking import calculate_pagerank, get_spam_score, calculate_hybrid_score
-# --- Eksperimenti 2: Drejtues i renditjes rezistente ndaj spam-it ---
+# --- Eksperimenti 2: Drejtues i renditjes rezistente ndaj spam-it;përgjegjës për eksperimentin link farm ---
 # Punoi: Redian Dida
 # Grupi nr.5
 
