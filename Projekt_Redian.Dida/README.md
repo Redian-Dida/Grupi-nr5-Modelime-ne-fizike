@@ -27,15 +27,22 @@ një "link farm" artificial.
 
 **4. Strukturimi i Repozitorit**
 ├── Projekt_Redian.Dida
+
 │    └──scripts/
+
 │     ├── Eksperimenti_2.py
+
 │     ├── requirements.txt
+
 │     ├──README.md
+
 │    └──src/
 │           ├── _init_.py     
 │           └── ranking.py  
+
 │    └── figures/
 │           └── eksperimenti_2.png
+
 └──README.md
 **5. Udhëzime për Ekzekutimin**
 
