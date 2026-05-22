@@ -43,9 +43,11 @@ një "link farm" artificial.
 │           └── ranking.py  
 
 │    └── figures/
+
 │           └── eksperimenti_2.png
 
 └──README.md
+
 **5. Udhëzime për Ekzekutimin**
 
 ​1.Instaloni libraritë e nevojshme:
