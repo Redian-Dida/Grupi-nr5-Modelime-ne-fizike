@@ -13,7 +13,26 @@ $$\frac{dN_2}{dt} = r_2 N_2 \left(1 - \frac{N_2 + \alpha_{21}N_1}{K_2}\right)$$
 Ku kapaciteti mbajtës sezonal është i formës:
 $$K_1(t) = K_{1,0} \cdot \left(1 + A \cdot \sin\left(\frac{2\pi t}{T}\right)\right)$$
 
-### 3. Udhëzimet e Instalimit dhe Ekzekutimit
+### 3.Struktura e repozitorit ###
+Projek_Klevio.Shtembari/
+│
+├── src/
+│   ├── __init__.py
+│   ├── models/
+│   │   └── competition.py
+│   ├── analysis/
+│   │   ├── equilibria.py
+│   │   └── regime_scan.py
+│   └── visualization/
+│       └── phase_portraits.py
+│
+├── scripts/
+│   └── scan_competition.py
+└── README.md
+
+### 4. Udhëzimet e Instalimit dhe Ekzekutimit
 Instaloni varësitë kryesore shkencore:
 ```bash
 pip install numpy scipy matplotlib pandas
+ekzekutimi ne terminal:
+python eksperimenti_1.py
