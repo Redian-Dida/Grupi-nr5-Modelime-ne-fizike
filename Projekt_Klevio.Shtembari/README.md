@@ -1,4 +1,3 @@
-%%writefile README.md
 # Dy Popullata në Konkurrencë me Kapacitet Mbajtës dhe Sezonshmëri
 ## Kursi: Modelim në Fizikë
 
